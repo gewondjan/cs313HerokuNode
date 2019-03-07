@@ -7,7 +7,7 @@
         <%if (finalCost == -1) { %>
             <h1>The weight entered for <%= packageType %> is too large, check <a href='https://pe.usps.com/text/dmm300/Notice123.htm#_c037'>here</a> for details.</h1>             
         <% } else { %>
-            <h1>The Rate for <%= packageType %> with a weight of <%= packageWeight %> oz is <%= finalCost %></h1>
+            <h1>The Rate for <%= packageType %> with weight of <%= packageWeight %> oz is $<%= finalCost %></h1>
          <% } %>   
     </body>
 </html>
