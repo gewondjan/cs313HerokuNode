@@ -1,14 +1,10 @@
-module.exports = function calculateRate(req, res) {
-
-    let packageWeight = req.query.weight;
-    let packageType = req.query.packageType;
+module.exports = function calculateRate(packageWeight, packageType) {
 
     let LS = new Map([[1, .55], [2, .70], [3, .85], [3.5, 1.00]]);
     let LM = new Map([[1, .50], [2, .65], [3, .80], [3.5, .95]]);
     let LEF = new Map([[1, 1.00], [2, 1.15], [3, 1.30], [4, 1.45], [5, 1.60], [6, 1.75], [7, 1.90], [8, 2.05], [9, 2.20], [10, 2.35], [11, 2.50], [12, 2.65], [13, 2.80]]);
     let FCPSR = new Map([[4, 3.66], [8, 4.39], [12, 5.19], [13, 5.71]]);
     let allPostage = new Map([['LS', LS], ['LM', LM], ['LEF', LEF], ['FCPSR', FCPSR]]);
-    let fullNameOfType = new Map([['LS', 'Letters (Stamped)'], ['LM', 'Letters (Metered)'], ['LEF', 'Large Envelopes (Flats)'], ['FCPSR', 'First-Class Package Service-Retail']]);
 
     let finalCost = -1;
 
@@ -24,12 +20,6 @@ module.exports = function calculateRate(req, res) {
         //Do nothing, we just wanted to stop the looping.
     }
         
-    let itemsToRender = {
-        packageWeight: packageWeight,
-        packageType: fullNameOfType.get(packageType),
-        finalCost: finalCost
-    }
-
-    res.render('pages/rate', itemsToRender);
+    return finalCost;
     
  }
