@@ -4,15 +4,16 @@
 
     </head>
     <body>
-        <form>
-            <input type='text' name='weight'>
-            <select name='type'>
-                <option>Letters (Stamped)</option>
-                <option>Letters (Metered)</option>
-                <option>Large Envelopes (Flats)</option>
-                <option>First-Class Package Service—Retail</option>
+        <form method='get' action='getRate'>
+            <label for='weight'>Package Weight: </label>
+            <input type='text' id='weight' name='weight'>
+            <select name='packageType'>
+                <option value='LS'>Letters (Stamped)</option>
+                <option value='LM'>Letters (Metered)</option>
+                <option value='LEF'>Large Envelopes (Flats)</option>
+                <option value='FCPSR'>First-Class Package Service—Retail</option>
             </select>
-
+            <input type='submit' value='Find Out Postage'>
 
         </form>
     </body>
